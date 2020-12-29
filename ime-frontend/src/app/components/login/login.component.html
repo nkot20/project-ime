@@ -1,0 +1,114 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="large" color="#fff" type="square-jelly-box" [fullScreen]="true">
+    <p style="color: white;">Please Wait...</p>
+</ngx-spinner>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-expand col-md-6 col-lg col-xl col-sm ml-2" style="background-color: white; ">
+            <img src="../../assets/IME2.jpg" alt="ime" class="img-responsive col-md-12 ml-2" style="margin-top: 10px; margin-left: 10px;">
+        </nav>
+        <div class="col-sm">
+            <div class="materialContainer">
+
+
+                <div class="box col-sm-6">
+                    <form #f="ngForm" (ngSubmit)="onSubmit()">
+
+
+                        <div class="title">LOGIN</div>
+
+                        <div class="input">
+                            <label for="name">User Name</label>
+                            <input type="text" name="name" id="name" [(ngModel)]="user.iduser">
+                            <span class="spin"></span>
+                        </div>
+
+
+                        <div class="input">
+                            <label for="pass">Password</label>
+                            <input type="password" name="pw" id="pass" [(ngModel)]="user.pw">
+                            <span class="spin"></span>
+                        </div>
+
+                        <div class="button login">
+                            <button type="submit"><span>GO</span> <i class="fa fa-check"></i></button>
+                        </div>
+
+                        <a routerLink="menu" class="pass-forgot">Forgot your password?</a>
+                    </form>
+                </div>
+
+                <div class="overbox">
+                    <div class="material-button alt-2"><span class="shape"></span></div>
+
+                    <div class="title">REGISTER</div>
+                    <div class="row">
+                        <div class="scroller">
+                            <div class="input">
+                                <label for="mat">Matricule</label>
+                                <input type="text" name="mat" id="mat">
+                                <span class="spin"></span>
+                            </div>
+
+                            <div class="input">
+                                <label for="regname">UserName</label>
+                                <input type="text" name="regname" id="regname">
+                                <span class="spin"></span>
+                            </div>
+
+                            <div class="input">
+                                <label for="lastname">Prenom</label>
+                                <input type="text" name="lastname" id="lastname">
+                                <span class="spin"></span>
+                            </div>
+
+                            <div class="input">
+                                <label for="date"></label>
+                                <input type="date" name="date" id="date">
+                                <span class="spin"></span>
+                            </div>
+
+                            <div class="input">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email">
+                                <span class="spin"></span>
+                            </div>
+
+                            <div class="input">
+                                <label for="lieu">Lieu de naissance</label>
+                                <input type="text" name="lieu" id="lieu">
+                                <span class="spin"></span>
+                            </div>
+
+                            <div class="input">
+                                <label for="regpass">Password</label>
+                                <input type="password" name="regpass" id="regpass">
+                                <span class="spin"></span>
+                            </div>
+
+                            <div class="input">
+                                <label for="reregpass">Repeat Password</label>
+                                <input type="password" name="reregpass" id="reregpass">
+                                <span class="spin"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="button" style="margin-top: 20px;">
+                            <button><span>NEXT</span></button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- Button trigger modal -->
+
+
+<!-- height: 170px; width: 11%; border-radius: 330px; margin-top: 10%; margin-left: 20%; -->
