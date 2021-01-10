@@ -2,6 +2,7 @@ package ime.imebackend.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -19,20 +20,23 @@ public class Etudiant {
 	private String matricule;
 	private String nom; 
 	private String prenom;
-	private Date date_nais;
+	private Date datenais;
 	private String lieu;
 	private String email;
 	private int tel;
 	private String pw;
-	private String annee_aca;
+	
+	@Column(name="etatinscription")
 	private int etatinscription;
+	private String anneeaca;
+	
 	
 	@ManyToOne
-	@JoinColumn(name = "id_filiere", nullable = true)
+	@JoinColumn(name = "idfiliere", nullable = false)
 	private filiere filiere;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_niveau", nullable = false)
+	@JoinColumn(name = "idniveau", nullable = false)
 	private niveau niveau;
 
 	public String getMatricule() {
@@ -55,13 +59,6 @@ public class Etudiant {
 		this.prenom = prenom;
 	}
 
-	public Date getDate_nais() {
-		return date_nais;
-	}
-
-	public void setDate_nais(Date date_nais) {
-		this.date_nais = date_nais;
-	}
 
 	public String getLieu() {
 		return lieu;
@@ -95,28 +92,42 @@ public class Etudiant {
 		this.pw = pw;
 	}
 
-	public String getAnnee_aca() {
-		return annee_aca;
+
+
+	public Date getDatenais() {
+		return datenais;
 	}
 
-	public void setAnnee_aca(String annee_aca) {
-		this.annee_aca = annee_aca;
+	public void setDatenais(Date datenais) {
+		this.datenais = datenais;
 	}
 
-	public filiere getId_filiere() {
+	public String getAnneeaca() {
+		return anneeaca;
+	}
+
+	public void setAnneeaca(String anneeaca) {
+		this.anneeaca = anneeaca;
+	}
+
+	public filiere getFiliere() {
 		return filiere;
 	}
 
-	public void setId_filiere(filiere filiere) {
+	public void setFiliere(filiere filiere) {
 		this.filiere = filiere;
 	}
 
-	public niveau getId_niveau() {
+	public niveau getNiveau() {
 		return niveau;
 	}
 
-	public void setId_niveau(niveau niveau) {
+	public void setNiveau(niveau niveau) {
 		this.niveau = niveau;
+	}
+
+	public void setMatricule(String matricule) {
+		this.matricule = matricule;
 	}
 
 	public int getEtatinscription() {
@@ -126,6 +137,31 @@ public class Etudiant {
 	public void setEtatinscription(int etatinscription) {
 		this.etatinscription = etatinscription;
 	}
+
+	public Etudiant(String matricule, String nom, String prenom, Date datenais, String lieu, String email, int tel,
+			String pw, int etatinscription, String anneeaca, ime.imebackend.entity.filiere filiere,
+			ime.imebackend.entity.niveau niveau) {
+		super();
+		this.matricule = matricule;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.datenais = datenais;
+		this.lieu = lieu;
+		this.email = email;
+		this.tel = tel;
+		this.pw = pw;
+		this.etatinscription = etatinscription;
+		this.anneeaca = anneeaca;
+		this.filiere = filiere;
+		this.niveau = niveau;
+	}
+
+	public Etudiant() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 	
 	
 }

@@ -15,13 +15,13 @@ public class filiere {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_filiere;
+	private Long idfiliere;
 	private String intitule;
-	public Long getId_filiere() {
-		return id_filiere;
+	public Long getIdfiliere() {
+		return idfiliere;
 	}
-	public void setId_filiere(Long id_filiere) {
-		this.id_filiere = id_filiere;
+	public void setIdfiliere(Long idfiliere) {
+		this.idfiliere = idfiliere;
 	}
 	public String getIntitule() {
 		return intitule;

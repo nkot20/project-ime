@@ -15,13 +15,13 @@ public class niveau {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_niveau;
+	private Long idniveau;
 	private String intitule;
-	public Long getId_niveau() {
-		return id_niveau;
+	public Long getIdniveau() {
+		return idniveau;
 	}
-	public void setId_niveau(Long id_niveau) {
-		this.id_niveau = id_niveau;
+	public void setIdniveau(Long idniveau) {
+		this.idniveau = idniveau;
 	}
 	public String getIntitule() {
 		return intitule;

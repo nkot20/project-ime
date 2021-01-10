@@ -1,0 +1,33 @@
+<div class="m-3">
+    <form>
+        <div class="form-group form-inline">
+            Chercher un étudiant à partir de son matricule:
+            <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="searchTerm" (input)="search($event.target.value)" />
+        </div>
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col" sortable="name">Matricule</th>
+                <th scope="col" sortable="area">Nom</th>
+                <th scope="col" sortable="population">Prénom</th>
+                <th scope="col" sortable="population">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of studentsNoValidate | listFilter: searchTerm | slice: (page-1) * pageSize : page * pageSize; index as i">
+                <th scope="row">{{ (page -1) * pageSize + i + 1 }}</th>
+                <td>
+                    {{ student.matricule }}
+                </td>
+                <td>{{ student.nom }}</td>
+                <td>{{ student.prenom }}</td>
+                <td>
+                    <a routerLink="/student/{{ student.matricule }}"><button class="btn btn-success">Voir</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="5" [boundaryLinks]="true" [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+</div>

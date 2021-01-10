@@ -15,7 +15,7 @@ public class role {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idrole;
+	private int idrole;
 	private String intitule;
 	
 	/*
@@ -23,11 +23,11 @@ public class role {
 	 * user;
 	 */
 
-	public Long getIdrole() {
+	public int getIdrole() {
 		return idrole;
 	}
 
-	public void setIdrole(Long idrole) {
+	public void setIdrole(int idrole) {
 		this.idrole = idrole;
 	}
 
@@ -39,6 +39,23 @@ public class role {
 		this.intitule = intitule;
 	}
 
+	public role(int idrole, String intitule) {
+		super();
+		this.idrole = idrole;
+		this.intitule = intitule;
+	}
+
+	public role() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	
+
+	
+	
 	/*
 	 * public Set<user> getUser() { return user; }
 	 * 

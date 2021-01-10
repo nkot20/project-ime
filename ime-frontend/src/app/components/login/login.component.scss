@@ -1,7 +1,21 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(../../../font/Roboto_Mono/static/RobotoMono-Regular.ttf) format("truetype");
+}
+
 .scroller {
     width: 370px;
     height: 230px;
     overflow-y: scroll;
     scrollbar-color: rebeccapurple green;
     scrollbar-width: thin;
+}
+
+.select {
+    height: 50px;
+    width: 350px;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    font-size: 24px;
+    font-weight: 300;
 }

@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <nav class="navbar navbar-expand col-md-6 col-lg col-xl col-sm ml-2" style="background-color: white; ">
-            <img src="../../assets/IME2.jpg" alt="ime" class="img-responsive col-md-12 ml-2" style="margin-top: 10px; margin-left: 10px;">
+            <img src="../../assets/IME2.jpg" alt="ime" style="margin-top: 10px; margin-left: 10px;">
         </nav>
         <div class="col-sm">
             <div class="materialContainer">
@@ -42,60 +42,108 @@
 
                     <div class="title">REGISTER</div>
                     <div class="row">
-                        <div class="scroller">
-                            <div class="input">
-                                <label for="mat">Matricule</label>
-                                <input type="text" name="mat" id="mat">
-                                <span class="spin"></span>
+                        <form #f="ngForm">
+                            <div class="scroller">
+
+                                <div class="input">
+                                    <label for="mat">Matricule</label>
+                                    <input type="text" name="mat" id="mat" [(ngModel)]="etudiant.matricule">
+                                    <span class="spin"></span>
+                                </div>
+
+                                <div class="input">
+                                    <label for="regname">Nom</label>
+                                    <input type="text" name="regname" id="regname" [(ngModel)]="etudiant.nom">
+                                    <span class="spin"></span>
+                                </div>
+
+                                <div class="input">
+                                    <label for="lastname">Prenom</label>
+                                    <input type="text" name="lastname" id="lastname" [(ngModel)]="etudiant.prenom">
+                                    <span class="spin"></span>
+                                </div>
+
+                                <div class="input">
+                                    <label for="date"></label>
+                                    <input type="date" name="date" id="date" [(ngModel)]="etudiant.datenais">
+                                    <span class="spin"></span>
+                                </div>
+
+                                <div class="input">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" id="email" [(ngModel)]="etudiant.email">
+                                    <span class="spin"></span>
+                                </div>
+
+                                <div class="input">
+                                    <label for="tel">Téléphone</label>
+                                    <input type="tel" name="tel" id="tel" [(ngModel)]="etudiant.tel">
+                                    <span class="spin"></span>
+                                </div>
+
+                                <div class="input">
+                                    <label for="lieu">Lieu de naissance</label>
+                                    <input type="text" name="lieu" id="lieu" [(ngModel)]="etudiant.lieu">
+                                    <span class="spin"></span>
+                                </div>
+
+                                <div class="input">
+                                    <select name="niveau" class="select" [(ngModel)]="etudiant.niveau.idniveau">
+                                        <option value="" selected disabled>Niveau</option>
+                                        <option value="{{ niveau.idniveau }}" *ngFor="let niveau of niveau">{{ niveau.intitule }} </option>
+                                    </select>
+                                </div>
+
+                                <div class="input select">
+                                    <select name="filiere" class="select" [(ngModel)]="etudiant.filiere.idfiliere">
+                                        <option value="" selected disabled>Filière</option>
+                                        <option value="{{ filiere.idfiliere }}" *ngFor="let filiere of filieres">{{ filiere.intitule }} </option>
+                                    </select>
+                                </div>
+
+                                <div class="input select">
+                                    <select name="anneeaca" class="select" [(ngModel)]="etudiant.anneeaca">
+                                        <option value="" selected disabled>Année académique</option>
+                                        <option value="2010">2010</option>
+                                        <option value="2011">2011</option>
+                                        <option value="2012">2012</option>
+                                        <option value="2013">2013</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
+                                    </select>
+                                </div>
+
+                                <div class="input">
+                                    <label for="regpass">Password</label>
+                                    <input type="password" name="regpass" id="regpass">
+                                    <span class="spin"></span>
+                                </div>
+
+                                <div class="input">
+                                    <label for="reregpass">Repeat Password</label>
+                                    <input type="password" name="reregpass" id="reregpass" [(ngModel)]="etudiant.pw">
+                                    <span class=" spin "></span>
+                                </div>
                             </div>
 
-                            <div class="input">
-                                <label for="regname">UserName</label>
-                                <input type="text" name="regname" id="regname">
-                                <span class="spin"></span>
+
+                            <div class="button " style="margin-top: 20px; ">
+                                <button (click)="onSubmit2()"><span>NEXT</span></button>
                             </div>
+                        </form>
 
-                            <div class="input">
-                                <label for="lastname">Prenom</label>
-                                <input type="text" name="lastname" id="lastname">
-                                <span class="spin"></span>
-                            </div>
-
-                            <div class="input">
-                                <label for="date"></label>
-                                <input type="date" name="date" id="date">
-                                <span class="spin"></span>
-                            </div>
-
-                            <div class="input">
-                                <label for="email">Email</label>
-                                <input type="email" name="email" id="email">
-                                <span class="spin"></span>
-                            </div>
-
-                            <div class="input">
-                                <label for="lieu">Lieu de naissance</label>
-                                <input type="text" name="lieu" id="lieu">
-                                <span class="spin"></span>
-                            </div>
-
-                            <div class="input">
-                                <label for="regpass">Password</label>
-                                <input type="password" name="regpass" id="regpass">
-                                <span class="spin"></span>
-                            </div>
-
-                            <div class="input">
-                                <label for="reregpass">Repeat Password</label>
-                                <input type="password" name="reregpass" id="reregpass">
-                                <span class="spin"></span>
-                            </div>
-                        </div>
-
-
-                        <div class="button" style="margin-top: 20px;">
-                            <button><span>NEXT</span></button>
-                        </div>
                     </div>
 
 

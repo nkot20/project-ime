@@ -15,6 +15,7 @@ public class LoginService {
 
 	@Autowired
 	private UserRepository repo;
+	@Autowired
 	private RoleRepository reporole;
 	
 	

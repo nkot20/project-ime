@@ -1,7 +1,11 @@
+import { Etudiant } from './../classes/etudiant';
+import { Filiere } from './../classes/filiere';
+import { Niveau } from './../classes/niveau';
 import { User } from './../classes/user';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +34,45 @@ export class RegistrationService {
     console.log(!(userIs === null))
     return (userIs === null)
   }
+
+  GetNiveau(): Observable<Niveau[]> {
+    const searchUrl = `${this.baseUrl}/niveaus`;
+    return this._http.get<GetResponseNiveau>(searchUrl).pipe(
+      map(response => response._embedded.niveaus)
+    );
+  }
+
+  GetFiliere(): Observable<Filiere[]> {
+    const searchUrl = `${this.baseUrl}/filieres`;
+    return this._http.get<GetResponseFiliere>(searchUrl).pipe(
+      map(response => response._embedded.filieres)
+    );
+  }
+
+  saveStudent(etudiant: Etudiant): Observable<any> {
+    const postStudent = `${this.baseUrl}/savestudent/`;
+    return this._http.post<any>(postStudent, etudiant);
+  }
+
+  getStudent(): Observable<Etudiant[]> {
+    const getStudent = `${this.baseUrl}/studentregister`;
+    return this._http.get<Etudiant[]>(getStudent);
+  }
+
+}
+
+interface GetResponseNiveau {
+
+  _embedded: {
+    niveaus: Niveau[];
+  };
+
+}
+
+interface GetResponseFiliere {
+
+  _embedded: {
+    filieres: Filiere[];
+  };
 
 }

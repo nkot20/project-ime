@@ -1,3 +1,6 @@
+import { Etudiant } from './../../classes/etudiant';
+import { Filiere } from './../../classes/filiere';
+import { Niveau } from './../../classes/niveau';
 import { Router} from '@angular/router';
 import { User } from './../../classes/user';
 import { RegistrationService } from './../../services/registration.service';
@@ -5,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import * as $ from 'jquery';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +20,9 @@ export class LoginComponent implements OnInit {
   user: User = new User();
   incorretUser: number;
   correctUser: User = new User();
+  niveau: Niveau[];
+  filieres: Filiere[];
+  etudiant: Etudiant = new Etudiant();
 
   constructor(private _service: RegistrationService, private _spinnerService: NgxSpinnerService, private router: Router) {
 
@@ -142,6 +149,8 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+     this.listNiveau();
+     this.listFiliere();
   }
 
   loginUser() {
@@ -180,6 +189,45 @@ export class LoginComponent implements OnInit {
  
    onSubmit() {
       this.loginUser()
+   }
+
+   listNiveau() {
+      this._service.GetNiveau().subscribe(
+         data => {
+            this.niveau = data;
+            console.log(data);
+         }
+      );
+   }
+
+   listFiliere() {
+      this._service.GetFiliere().subscribe(
+         data => {
+            this.filieres = data;
+            console.log(data);
+         }
+      );
+   }
+
+   onSubmit2() {
+      this.etudiant.etatinscription = 0;
+      //this.etudiant.niveau.idniveau =
+      this._spinnerService.show();
+      this._service.saveStudent(this.etudiant).subscribe(
+         data => {
+            setTimeout(
+               () => {
+                  console.log(data);
+                  this._spinnerService.hide()
+                  this.router.navigate(['/message'])
+               }, 3000
+            );
+         },
+         error =>{
+            console.log(error)
+         }
+      ); 
+      console.log(this.etudiant);
    }
 
 

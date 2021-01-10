@@ -1,5 +1,7 @@
 package ime.imebackend.services;
 
+import java.util.Scanner;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,16 +10,19 @@ import ime.imebackend.repository.EtudiantRepository;
 
 @Service
 public class RegisterService {
+	static Scanner Lire=new Scanner(System.in);
 	
 	@Autowired
-	private EtudiantRepository student;
+	private EtudiantRepository studentrepo;
 	
-	public Etudiant saveStudent(Etudiant etudiant) {
-		return student.save(etudiant);
-	}
+	/*
+	 * public Etudiant saveStudent(Etudiant etudiant) {
+	 * System.out.println(etudiant.getNom()); return studentrepo.save(etudiant); }
+	 */
 	
 	public Etudiant featchUserByMat(String matricule) {
-		return student.findByMatricule(matricule);
+		System.out.println(matricule);
+		return studentrepo.findByMatricule(matricule);
 	}
 
 }
