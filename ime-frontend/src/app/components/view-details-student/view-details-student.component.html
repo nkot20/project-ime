@@ -1,3 +1,6 @@
+<!-- <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="large" color="#fff" type="square-jelly-box" [fullScreen]="true" *ngIf="spinner === 1">
+    <p style="color: white;">Please Wait...</p>
+</ngx-spinner> -->
 <div id="wrapper" style="margin-top: 50px;">
 
     <div class="overlay"></div>
@@ -56,7 +59,7 @@
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
-    <div id="page-content-wrapper">
+    <div id="page-content-wrapper bg-white">
         <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
                  <span class="hamb-top"></span>
                  <span class="hamb-middle"></span>
@@ -64,9 +67,61 @@
              </button>
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <app-list-view-student-register></app-list-view-student-register>
+                <div class="col-lg-12 col-lg-offset-8">
+                    <div class="col-lg-12">
+                        <br>
+                        <div class="row">
 
+                            <!-- <div class="col-12 col-md-4">
+                                <div class="thumbnail">
+                                    <img [src]="book.imageUrl" alt="" width="250" height="300">
+                                </div>
+                            </div> -->
+
+                            <div class="col-12 col-md-8">
+                                <h3>Matricule: {{ student.matricule }}</h3>
+                                <hr />
+
+                                <h3>Nom: {{ student.nom }} </h3>
+                                <hr />
+
+                                <h3>Date de naissance: {{ student.datenais }}</h3>
+                                <hr />
+
+                                <h3>Lieu de naissance {{ student. lieu}}
+                                </h3>
+                                <hr />
+
+                                <h3>Email: {{ student.email }}
+                                </h3>
+                                <hr />
+
+                                <h3>Tel: {{ student.tel }}
+                                </h3>
+                                <hr />
+
+                                <h3>Niveau: {{ student.niveau.intitule }}
+                                </h3>
+                                <hr />
+
+                                <h3>Filère: {{ student.filiere.intitule }}
+                                </h3>
+                                <hr />
+
+                                <a class="btn bg-light" routerLink="/menu">
+                                    Back
+                                </a>
+                                <button class="btn btn-danger" style="margin-left: 10px;" (click)="sendEmailReject()">
+                                     Rejetter
+                                </button>
+                                <button class="btn btn-success" style="margin-left: 10px;" (click)="sendEmailValidated()">
+                                    Valider
+                               </button>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
