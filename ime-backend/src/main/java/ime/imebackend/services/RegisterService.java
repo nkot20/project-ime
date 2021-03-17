@@ -1,5 +1,7 @@
 package ime.imebackend.services;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,22 @@ public class RegisterService {
 	public Etudiant featchUserByMat(String matricule) {
 		System.out.println(matricule);
 		return studentrepo.findByMatricule(matricule);
+	}
+	
+	public List<Etudiant> feacthAllStudentRegister() {
+		return studentrepo.findByEtatinscriptionIs(0);
+	}
+	
+	public Etudiant saveEtudiant(Etudiant etudiant) {
+		return studentrepo.save(etudiant);
+	}
+	
+	public Etudiant getStudentByMAtricule(String matricule) {
+		return studentrepo.findByMatricule(matricule);
+	}
+	
+	public void deleteStudent(Etudiant student) {
+		studentrepo.delete(student);
 	}
 
 }

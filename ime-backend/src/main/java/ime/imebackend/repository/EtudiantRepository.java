@@ -21,4 +21,5 @@ public interface EtudiantRepository extends JpaRepository<Etudiant, String> {
 	public List<Etudiant> findByEtatinscriptionIs(int etat);
 	
 	public Etudiant findByMatricule(String matricule);
+	
 }

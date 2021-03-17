@@ -17,6 +17,7 @@ import { ListViewStudentRegisterComponent } from './components/list-view-student
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MessageAfterRegistrationComponent } from './components/message-after-registration/message-after-registration.component';
 import { ViewDetailsStudentComponent } from './components/view-details-student/view-details-student.component';
+import { SaveRequestNoteComponent } from './components/save-request-note/save-request-note.component';
 
 
 const routes: Routes = [
@@ -34,7 +35,8 @@ const routes: Routes = [
     ListViewStudentRegisterComponent,
     ListFilterPipe,
     MessageAfterRegistrationComponent,
-    ViewDetailsStudentComponent
+    ViewDetailsStudentComponent,
+    SaveRequestNoteComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,17 @@
 package ime.imebackend.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import lombok.ToString;
 
@@ -21,21 +28,20 @@ public class user {
 	
 	
 	@ManyToOne
-	@JoinColumn(name = "idrole", nullable = false)
+	@JoinColumn(name = "idrole", nullable = false)	
 	private role role;
 	
 	public user() {
 		
 	}
 
-	public user(String iduser, String nom, String prenom, String pw, ime.imebackend.entity.role role) {
+	public user(String iduser, String nom, String prenom, String pw) {
 		this.iduser = iduser;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.pw = pw;
-		this.role = role;
 	}
-	
+
 	public String getIduser() {
 		return iduser;
 	}
@@ -75,6 +81,11 @@ public class user {
 	public void setRole(role role) {
 		this.role = role;
 	}
+	
+
+
+
+	
 
 	
 	

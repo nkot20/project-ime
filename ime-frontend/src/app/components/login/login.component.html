@@ -6,7 +6,7 @@
         <nav class="navbar navbar-expand col-md-6 col-lg col-xl col-sm ml-2" style="background-color: white; ">
             <img src="../../assets/IME2.jpg" alt="ime" style="margin-top: 10px; margin-left: 10px;">
         </nav>
-        <div class="col-sm">
+        <div class="">
             <div class="materialContainer">
 
 
@@ -18,14 +18,14 @@
 
                         <div class="input">
                             <label for="name">User Name</label>
-                            <input type="text" name="name" id="name" [(ngModel)]="user.iduser">
+                            <input type="text" name="name" id="name" [(ngModel)]="loginInfo.username">
                             <span class="spin"></span>
                         </div>
 
 
                         <div class="input">
                             <label for="pass">Password</label>
-                            <input type="password" name="pw" id="pass" [(ngModel)]="user.pw">
+                            <input type="password" name="pw" id="pass" [(ngModel)]="loginInfo.password">
                             <span class="spin"></span>
                         </div>
 

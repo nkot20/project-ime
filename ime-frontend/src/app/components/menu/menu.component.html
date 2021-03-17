@@ -10,7 +10,7 @@
             <div class="sidebar-header">
                 <div class="sidebar-brand" style="height: 150px;">
                     <div style="background-color: white; border-radius: 160%; height: 100px; width: 130px; margin-left: 18%;">
-                        <a href="#"><img src="../../assets/IME3.jpg" alt="ime" class="img-responsive" style="margin-top: 20%; "></a>
+                        <a href="#"><img src="../../assets/IME3.jpg" alt="ime" style="margin-top: 20%; "></a>
                     </div>
 
                 </div>
@@ -30,7 +30,17 @@
             </div>
 
             <li *ngIf="nowUser.role.idrole === 1"><a href="">Liste des demandes</a> </li>
-
+            <li *ngIf="nowUser.role.idrole === 2"><a href="">Liste de vos<br>requêtes</a> </li>
+            <li class="dropdown" *ngIf="nowUser.role.idrole === 2" style="width: 200px;">
+                <a routerLink="menu" class="dropdown-toggle" data-toggle="dropdown" style="width: 200px; height: 65px;"> <span class="caret">Envoyer une <br> requête</span></a>
+                <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                    <div class="dropdown-header">Requêtes</div>
+                    <li><a href="#pictures">Notes</a></li>
+                    <li><a href="#videos">Absences</a></li>
+                    <li><a href="#books">Certificat de scolarité</a></li>
+                    <li><a href="#art">Scolarité</a></li>
+                </ul>
+            </li>
             <button class="btn btn-light ml-4 mt-3" (click)="logOut()">Deconnection</button>
 
             <!-- <li><a href="#home">Home</a></li>
@@ -65,7 +75,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <app-list-view-student-register></app-list-view-student-register>
+                    <app-list-view-student-register *ngIf="nowUser.role.idrole === 1"></app-list-view-student-register>
 
                 </div>
             </div>

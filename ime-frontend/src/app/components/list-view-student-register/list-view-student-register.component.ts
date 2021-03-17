@@ -26,8 +26,6 @@ export class ListViewStudentRegisterComponent implements OnInit {
   }
 
   getStudentNoValidaate() {
-    this._spinnerService.show();
-    
     this._service.getStudent().subscribe(
       data => {
         console.log(data);

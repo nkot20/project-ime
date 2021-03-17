@@ -1,5 +1,7 @@
 package ime.imebackend.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +25,7 @@ public class LoginService {
 		return repo.save(user);
 	}
 	
-	public user featchUserById(String Id) {
+	public Optional<user> featchUserById(String Id) {
 		return repo.findByIduser(Id);
 	}
 	
